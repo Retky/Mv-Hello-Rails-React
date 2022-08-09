@@ -1,7 +1,8 @@
 module Api::V1
   class GreetingsController < ApplicationController
     def index
-      render json: { message: 'Hello Rails React' }
+      @greeting = Greeting.find(rand(1..5))
+      render json: @greeting
     end
   end
 end
