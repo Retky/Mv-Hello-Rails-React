@@ -23,8 +23,10 @@ If required modify the user in `config\database.yml` lines 23 & 24.
   - In your local path, where you have your repo cloned:
   - Run the command `bundle install`
   - Run the command `npm ci`
+  - Run the command `yarn install`
   - Create the Database `rails db:create`
   - Migrate the Database `rails db:migrate`
+  - Import the seeds `rails db:seed`
 
 ## Author
 👤 **J. Luis Arredondo**
