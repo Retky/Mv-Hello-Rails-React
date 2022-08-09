@@ -1,20 +1,23 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 
 const initialState = {
-  things: [
-    { id: 1, name: 'thing 1' },
-    { id: 2, name: 'thing 2' },
-  ]
+  things: []
 };
 
 const rootReducer = (state = initialState, action) => {
   console.log(action.type);
   switch (action.type) {
-    default:
-      return state;
+    case 'GET_THINGS_SUCCESS':
+      return { things: action.json.things };
   }
+  return state;
 }
 
 export default function configureStore() {
-  return createStore(rootReducer);
+  const store = createStore(
+    rootReducer,
+    applyMiddleware(thunk)
+  )
+  return store;
 }
